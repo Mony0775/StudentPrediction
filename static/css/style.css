@@ -1,0 +1,372 @@
+/* static/css/style.css */
+:root {
+    --sidebar-width: 260px;
+    --primary-color: #4f46e5;
+    --success-color: #10b981;
+    --warning-color: #f59e0b;
+    --danger-color: #ef4444;
+    --dark-bg: #1e1b4b;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f1f5f9;
+    overflow-x: hidden;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -280px;
+    bottom: 0;
+    z-index: 1050;
+    padding: 0;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    min-height: 100vh;
+    width: var(--sidebar-width);
+    background: #1e1b4b !important;
+    overflow-y: auto;
+    transition: left 0.3s ease;
+}
+
+.sidebar.active {
+    left: 0;
+}
+
+.sidebar-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.2);
+    padding: 1.5rem 1rem;
+}
+
+.sidebar-header h4 {
+    color: #fff;
+    margin: 0;
+}
+
+.sidebar-header small {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.sidebar .nav-link {
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.7);
+    padding: 0.75rem 1.5rem;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+    cursor: pointer;
+}
+
+.sidebar .nav-link:hover {
+    color: rgba(255, 255, 255, 1);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.sidebar .nav-link.active {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.08);
+    border-left-color: var(--primary-color);
+}
+
+.sidebar .nav-link i {
+    margin-right: 0.75rem;
+    width: 20px;
+    text-align: center;
+}
+
+/* Sidebar Toggle Button */
+.sidebar-toggle {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1060;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.6rem 1rem;
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(79, 70, 229, 0.4);
+}
+
+.sidebar-toggle:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.5);
+}
+
+/* Sidebar Overlay */
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1040;
+}
+
+.sidebar-overlay.active {
+    display: block;
+}
+
+/* Main Content */
+main {
+    margin-left: 0;
+    padding: 1.5rem;
+    padding-top: 5rem;
+    min-height: 100vh;
+    transition: margin-left 0.3s ease;
+}
+
+/* Cards */
+.card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin-bottom: 1.5rem;
+    background: white;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.card-header {
+    background: transparent;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 1rem 1.25rem;
+    font-weight: 600;
+}
+
+.card-stat {
+    border-left: 4px solid var(--primary-color);
+    background: white;
+    padding: 1.25rem;
+}
+
+.card-stat .stat-icon {
+    font-size: 2rem;
+    opacity: 0.3;
+}
+
+.card-stat .stat-number {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.card-stat .stat-label {
+    color: #6b7280;
+    font-size: 0.85rem;
+}
+
+/* Risk Level Badges */
+.risk-low {
+    color: var(--success-color);
+    background: #d1fae5;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.875rem;
+}
+
+.risk-medium {
+    color: #92400e;
+    background: #fef3c7;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.875rem;
+}
+
+.risk-high {
+    color: #991b1b;
+    background: #fecaca;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.875rem;
+}
+
+.risk-critical {
+    color: #7f1d1d;
+    background: #fca5a5;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.875rem;
+}
+
+/* Table */
+.table-container {
+    overflow-x: auto;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    background: white;
+}
+
+.table {
+    margin-bottom: 0;
+}
+
+.table th {
+    background: #f8fafc;
+    font-weight: 600;
+    color: #1f2937;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+/* Upload Area */
+.upload-area {
+    border: 2px dashed #d1d5db;
+    border-radius: 12px;
+    padding: 3rem 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    background: #fafbfc;
+    cursor: pointer;
+}
+
+.upload-area:hover {
+    border-color: var(--primary-color);
+    background: #f8fafc;
+}
+
+.upload-area.dragover {
+    border-color: var(--primary-color);
+    background: #eef2ff;
+}
+
+.upload-area .upload-icon {
+    font-size: 3rem;
+    color: #9ca3af;
+    margin-bottom: 1rem;
+}
+
+/* Spinner Overlay */
+.spinner-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.spinner-overlay.active {
+    display: flex;
+}
+
+.spinner-overlay .spinner-border {
+    width: 3rem;
+    height: 3rem;
+}
+
+/* Prediction Result */
+.prediction-result .status-badge {
+    font-size: 1.5rem;
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    min-width: 120px;
+}
+
+.prediction-result .confidence-meter {
+    height: 8px;
+    background: #e5e7eb;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.prediction-result .confidence-meter .fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 1.2s ease;
+}
+
+/* Toast */
+.toast-container {
+    z-index: 9999;
+}
+
+.toast {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    border-left: 4px solid var(--primary-color);
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+    .sidebar {
+        left: 0;
+    }
+    
+    main {
+        margin-left: var(--sidebar-width);
+        padding-top: 1.5rem;
+    }
+    
+    .sidebar-toggle {
+        display: none;
+    }
+    
+    .sidebar-overlay {
+        display: none !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .card-stat .stat-number {
+        font-size: 1.25rem;
+    }
+    
+    .card-stat .stat-icon {
+        font-size: 1.25rem;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 0.4s ease forwards;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c4c4c4;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
